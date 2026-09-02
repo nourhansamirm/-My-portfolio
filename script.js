@@ -1,21 +1,21 @@
 ```javascript
-// MOBILE MENU
+// Simple scroll effect
 
-const menuBtn = document.getElementById("menu-btn");
-const navLinks = document.getElementById("nav-links");
+document.querySelectorAll('nav a').forEach(function(link) {
 
-menuBtn.addEventListener("click", function () {
-    navLinks.classList.toggle("active");
-});
+    link.addEventListener('click', function(event) {
 
+        event.preventDefault();
 
-// CLOSE MENU AFTER CLICKING A LINK
+        const section = document.querySelector(
+            this.getAttribute('href')
+        );
 
-const links = document.querySelectorAll(".nav-links a");
+        section.scrollIntoView({
+            behavior: 'smooth'
+        });
 
-links.forEach(function (link) {
-    link.addEventListener("click", function () {
-        navLinks.classList.remove("active");
     });
+
 });
 ```
